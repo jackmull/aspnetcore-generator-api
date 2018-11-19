@@ -6,7 +6,7 @@ services:
       context: .
     image: aspnetcore/generator:multi
     ports:
-      - "8080:80"
+      - "8081:80"
   mail:
     image: mailhog/mailhog
     ports:
