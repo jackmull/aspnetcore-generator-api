@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore-build:2 AS build-env
+FROM microsoft/dotnet:2.2-sdk AS build-env
 
 WORKDIR /generator
 
