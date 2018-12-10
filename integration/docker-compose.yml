@@ -2,7 +2,7 @@ version: '3.6'
 
 services:
   generator:
-    image: myregistry:55000/gen:ci-20
+    image: myregistry:55000/gen:ci-${GENERATOR_BUILD_NUMBER-99}
     # ports:
     #   - "8080:80"
   mail:
@@ -12,9 +12,11 @@ services:
   integration:
     build:
       context: .
-    image: myregistry:55000/integration:ci-20
+    image: myregistry:55000/integration:ci-${BUILD_NUMBER-99}
     depends_on:
       - generator
       - mail
+    environment:
+      - TEAMCITY_PROJECT_NAME
 
     
