@@ -1,0 +1,20 @@
+version: '3.6'
+
+services:
+  generator:
+    image: myregistry:55000/gen:ci-20
+    # ports:
+    #   - "8080:80"
+  mail:
+    image: mailhog/mailhog
+    # ports:
+    #   - "8025:8025"
+  integration:
+    build:
+      context: .
+    image: myregistry:55000/integration:ci-20
+    depends_on:
+      - generator
+      - mail
+
+    
